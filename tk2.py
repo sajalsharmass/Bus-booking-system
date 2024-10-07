@@ -1,0 +1,45 @@
+from tkinter import *
+from tkinter.messagebox import *
+root=Tk()
+w,h=root.winfo_screenwidth(),root.winfo_screenheight()
+root.geometry('%dx%d+0+0'%(w,h))
+
+img=PhotoImage(file='.\\Bus_for_project.png')
+
+def onclick():
+        Label(root,text="Select Bus",fg="green").grid(row=4,column=5)
+        Label(root,text="Operator",fg="green").grid(row=4,column=6)
+        Label(root,text="Bus Type",fg="green").grid(row=4,column=7)
+        Label(root,text="Avaliable/Capacity",fg="green").grid(row=4,column=8)
+        Label(root,text="Fare",fg="green").grid(row=4,column=9)
+        Button(root,text="Proceed to Book",font=('Arial',12,'bold'),bg="light green",command=againclick).grid(row=5,column=11)
+
+def againclick():
+    Label(root,text="Fill Passenger Details to book the Bus Ticket",font=('Times',12),bg="light blue",fg="red").grid(row=6,column=3,columnspan=10,pady=25)
+    Label(root,text="Name").grid(row=7,column=2)
+    Entry(root).grid(row=7,column=3)
+    Label(root,text="Gender").grid(row=7,column=4)
+    bus_type=StringVar()
+    bus_type.set("Select")
+    opt=["Male","Female","Other"]
+    d_menu=OptionMenu(root,bus_type,*opt).grid(row=7,column=5)
+    Label(root,text="No.of seats").grid(row=7,column=6)
+    Entry(root).grid(row=7,column=7)
+    Label(root,text="Mobile No").grid(row=7,column=8)
+    Entry(root).grid(row=7,column=9)
+    Label(root,text="Age").grid(row=7,column=10)
+    Entry(root).grid(row=7,column=11)
+    Button(root,text="Book Seat").grid(row=7,column=12)
+Label(root,image=img).grid(row=0,column=0,padx=w//3,columnspan=15)
+Label(root,text='Online Bus Booking System',fg="red",bg="sky blue",font=('Times',24,'bold')).grid(row=1,column=3,pady=25,padx=25,columnspan=10)
+Label(root,text="Enter Journey Details",bg="green",fg="white").grid(row=2,column=8,columnspan=2,padx=20)
+Label(root,text="To").grid(row=3,column=5)
+Entry(root).grid(row=3,column=6)
+Label(root,text="From").grid(row=3,column=7)
+Entry(root).grid(row=3,column=8)
+Label(root,text="Journey Date").grid(row=3,column=9)
+Entry(root).grid(row=3,column=10)
+Button(root,text="Show Bus",font=('Arial',12,'bold'),bg="green",command=onclick).grid(row=3,column=11)
+im=PhotoImage(file='.\\home.png')
+Label(root,image=im).grid(row=3,column=12)
+root.mainloop()

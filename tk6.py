@@ -1,0 +1,28 @@
+from tkinter import*
+from tkinter.messagebox import*
+root=Tk()
+h,w=root.winfo_screenheight(),root.winfo_screenwidth()
+root.geometry('%dx%d+0+0'%(w,h))
+img=PhotoImage(file=".\\Bus_for_project.png")
+Label(root,image=img).grid(row=0,column=1,padx=w//3,columnspan=15)
+Label(root,text='Online Bus Booking System',fg="red",bg="sky blue",font=('Times',24)).grid(row=1,column=3,pady=25,padx=25,columnspan=10)
+Label(root,text='Add Bus Operator Details',font='Arial 12 bold',bg='grey97',fg='dark green').grid(row=3,column=7,pady=20,columnspan=3)
+def fun():
+    if name.get()=='':
+        showerror('value missing','please enter your name')
+Label(root,text='operator id',font='Arial 12 bold').grid(row=4,column=3)
+Entry(root,font='Arial 12 bold').grid(row=4,column=4)
+Label(root,text='Name',font='Arial 12 bold').grid(row=4,column=5)
+name=Entry(root)
+name.grid(row=4,column=6)
+Label(root,text='Address',font='Arial 12 bold').grid(row=4,column=7)
+Entry(root,font='Arial 12 bold').grid(row=4,column=8)
+Label(root,text='Phone',font='Arial 12 bold').grid(row=4,column=9)
+Entry(root,font='Arial 12 bold').grid(row=4,column=10)
+Label(root,text='Email',font='Arial 12 bold').grid(row=4,column=11)
+Entry(root,font='Arial 12 bold').grid(row=4,column=12)
+Button(root,text='Add',font='Arial 12 bold',bg='light green',fg='dark green',command=fun).grid(row=5,column=6)
+Button(root,text='Edit',font='Arial 12 bold',bg='light green',fg='dark green').grid(row=5,column=7,pady=30)
+immg=PhotoImage(file=".\\home.png")
+Button(root,image=immg).grid(row=5,column=8)
+root.mainloop()
